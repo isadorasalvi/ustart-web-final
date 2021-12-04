@@ -43,6 +43,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: AppRoutes.Pedidos.base(),
+    loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: AppRoutes.Usuarios.base(),
     loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsersModule),
     canActivate: [AuthGuard]

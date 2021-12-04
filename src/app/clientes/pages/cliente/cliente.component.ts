@@ -5,6 +5,7 @@ import { ClienteService } from 'src/app/data-services/cliente.service';
 import { Cliente } from 'src/app/models/clientes/cliente';
 import { debounce } from 'lodash';
 import { AppRoutes } from 'src/app/app-routes';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-cliente',

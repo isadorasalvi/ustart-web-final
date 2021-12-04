@@ -1,7 +1,7 @@
-<nz-page-header nzTitle="Consulta de Clientes">
+<nz-page-header nzTitle="Consulta de Pedidos">
     <nz-page-header-extra>
         <button nz-button nzType="primary" (click)="novo()"><i nz-icon nzType="plus"></i>Novo</button>
-      </nz-page-header-extra>
+    </nz-page-header-extra>
 </nz-page-header>
 
 <nz-content>
@@ -11,7 +11,8 @@
             <nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="6">
                 <div class="filter-col">
                     <nz-input-group [nzSuffix]="suffixIconSearch">
-                        <input type="text" nz-input placeholder="Localizar por descricao" (keyup)="localizar($event)"/>                        
+                        <input type="text" nz-input placeholder="Localizar por descricao" 
+                        (keyup)="localizar($event)" />
                     </nz-input-group>
                     <ng-template #suffixIconSearch>
                         <i nz-icon nzType="search"></i>
@@ -21,16 +22,14 @@
         </nz-row>
     </div>
     <nz-spin nzTip="Consultando..." [nzSpinning]="false">
-        <nz-table #dados [nzData]="clientes"  [nzLoading]="loading" nzSize="small" [nzFrontPagination]="false" [nzBordered]="true"
-            [nzScroll]="{ y: '450px' }">
+        <nz-table #dados [nzData]="pedidos" [nzLoading]="loading" nzSize="small" [nzFrontPagination]="false"
+            [nzBordered]="true" [nzScroll]="{ y: '450px' }">
             <thead>
                 <tr>
                     <th nzWidth="150px">Ações</th>
                     <th nzWidth="250px">Nome</th>
-                    <th nzWidth="250px">Razão S.</th>
-                    <th>E-mail</th>                    
-                    <th>Fone</th>                    
-                    <th>Código externo</th>                    
+                    <th>Forma Pgto</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,13 +42,11 @@
                             <i nz-icon nzType="delete"></i>
                         </button>
                     </td>
-                    <td>{{item.nome}}</td>
-                    <td>{{item.razaoSocial}}</td>                    
-                    <td>{{item.email}}</td>                                        
-                    <td>{{item.fone}}</td>                                        
-                    <td>{{item.codigoExterno}}</td>                    
+                    <td>{{item.cliente.nome}}</td>
+                    <td>{{item.formaPagamento.descricao}}</td>                    
+                    <td>{{item.totalProdutos}}</td>    
                 </tr>
             </tbody>
-        </nz-table>        
+        </nz-table>
     </nz-spin>
 </nz-content>

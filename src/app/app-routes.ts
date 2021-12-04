@@ -22,6 +22,10 @@ export const AppRoutes = {
     base: () => "orcamentos",
     Cadastro: () => { return AppRoutes.Orcamento.base() + "/cad-orcamento" },
   },
+  Pedidos: {
+    base: () => "pedidos",
+    Cadastro: () => { return AppRoutes.Pedidos.base() + "/cad-pedido" },
+  },
   Usuarios: {
     base: () => "usuarios",
     Cadastro: () => { return AppRoutes.Usuarios.base() + "/cad-usuario" },
